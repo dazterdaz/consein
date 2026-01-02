@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colores principales */
+  --color-primary: #ff5722;
+  --color-primary-dark: #e64a19;
+  --color-primary-light: #ffccbc;
+  
+  --color-secondary: #673ab7;
+  --color-secondary-dark: #512da8;
+  --color-secondary-light: #d1c4e9;
+  
+  --color-accent: #00bcd4;
+  --color-accent-dark: #0097a7;
+  --color-accent-light: #b2ebf2;
+  
+  --color-success: #4caf50;
+  --color-warning: #ff9800;
+  --color-error: #f44336;
+  
+  --color-text-dark: #212121;
+  --color-text-light: #ffffff;
+  --color-text-muted: #757575;
+  
+  --color-background-light: #ffffff;
+  --color-background-dark: #121212;
+  --color-background-muted: #f5f5f5;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-background-light);
+}
+
+@layer components {
+  /* Botones personalizados */
+  .btn {
+    @apply py-2 px-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent-dark;
+  }
+
+  .btn-outline {
+    @apply border-2 bg-transparent;
+  }
+
+  .btn-outline-primary {
+    @apply border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  /* Tarjetas y contenedores */
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+
+  /* Inputs personalizados */
+  .input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+
+  /* Estilos para el estado de los cupones */
+  .status-descargado {
+    @apply bg-accent-light text-accent-dark;
+  }
+
+  .status-agendado {
+    @apply bg-secondary-light text-secondary-dark;
+  }
+
+  .status-cobrado {
+    @apply bg-primary-light text-primary-dark;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
